@@ -16,7 +16,7 @@ define('root',__DIR__.'/');
 
 //Local
 define('roothtml',$chk_link."://".server_name."/privateschoolsunmoonlight/");
-$con=new mysqli("localhost","root","root","privateschoolssw");
+$con=new mysqli("localhost","root","root","privateschoolsunmoonlight");
 
 define('curlink',basename($_SERVER['SCRIPT_NAME']));
 

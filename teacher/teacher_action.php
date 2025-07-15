@@ -242,7 +242,7 @@ if($action == 'show'){
         </thead>
         <tbody>
             <tr>
-                <td colspan="13" class="text-center">No data</td>
+                <td colspan="15" class="text-center">No data</td>
             </tr>
         </tbody>
         </table>
@@ -689,25 +689,23 @@ if($action == "import"){
             foreach($reader as $key => $row){
                 $staffid = $row[1];
                 $name = $row[2];
-
-                $dt = strtotime($row[3]);
+                $namemm = $row[3];
+                $dt = strtotime($row[4]);  
                 $dob = date('Y-m-d',$dt);
-
-                $gender = $row[4];
-                $phno = $row[5];
-                $address = $row[6];
-                $email = $row[7];
-                $education = $row[8];
-                $salary = $row[9];
-
-                $dt1 = strtotime($row[10]);
+                $gender = $row[5];     
+                $phno = $row[6];
+                $address = $row[7];
+                $email = $row[8];
+                $education = $row[9];
+                $salary = $row[10];
+                $dt1 = strtotime($row[11]);
                 $startdt = date('Y-m-d',$dt1);
+                $edulevel = $row[12];
 
-                $sql = "insert into tblstaff (LoginID,StaffID,Name,DOB,Gender,PhoneNo,
-                Address,Email,Education,Salary,StartDate)  
-                values ('{$userid}','{$staffid}','{$name}','{$dob}','{$gender}','{$phno}',
-                '{$address}','{$email}','{$education}','{$salary}','{$startdt}')";
-                // echo $sql;
+                $sql = "insert into tblstaff (LoginID,StaffID,Name,NameMM,DOB,Gender,
+                PhoneNo,Address,Email,Education,Salary,StartDate,EducationLevel)  
+                values ('{$userid}','{$staffid}','{$name}','{$namemm}','{$dob}','{$gender}',
+                '{$phno}','{$address}','{$email}','{$education}','{$salary}','{$startdt}','{$edulevel}')";
                 mysqli_query($con,$sql);
             }
             

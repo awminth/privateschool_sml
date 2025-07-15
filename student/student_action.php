@@ -823,9 +823,7 @@ if($action == "import"){
                     $email = $row[14];
                     $emergency = $row[15];
                     $address = $row[16];
-                    // $sql = "insert into tblstudentprofile (LoginID,StudentID,Name,DOB,Age,Gender)  
-                    // values ('{$userid}','{$studentid}','{$name}','{$dob}','{$age}','{$gender}')";
-                    // mysqli_query($con,$sql);
+
                     $sql = 'insert into tblstudentprofile (StudentID,Name,NameMM,DOB,Age,BirthPlace,
                     Gender,NationalID,ReligionID,FatherName,MotherName,MotherWork,PhoneNo,Email,
                     Emergence,ParentAddress)  
@@ -834,7 +832,6 @@ if($action == "import"){
                     "'.$mname.'","'.$occupation.'","'.$workphno.'","'.$email.'","'.$emergency.'",
                     "'.$address.'")';
                     mysqli_query($con,$sql);
-                    // echo $sql;
                 }
                 else{
                     $count = 1;

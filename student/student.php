@@ -295,7 +295,6 @@ $(document).ready(function() {
                     "success");
                 load_pag();
                 swal.close();
-                // $("#show_sql").html(data);
             }
         });
     });

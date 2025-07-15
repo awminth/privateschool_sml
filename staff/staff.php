@@ -47,10 +47,10 @@
                                                     class="fas fa-file-excel"></i>&nbsp;PDF</button>
                                         </form>
                                     </td>
-                                    <!-- <td>
+                                    <td>
                                         <button type="button" id="btnimport" class="btn btn-sm btn-primary"><i
                                                 class="fas fa-file-excel"></i>&nbsp;<?=$lang['staff_importdata'] ?></button>
-                                    </td> -->
+                                    </td>
                                 </tr>
                             </table><!-- Card body -->
                         </div>
