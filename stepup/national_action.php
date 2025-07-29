@@ -78,7 +78,7 @@ if($action == 'show'){
         $out.="</tbody>";
         $out.="</table><br>";
 
-        $sql_total="select * from tblreligion where AID is not null ".$a." 
+        $sql_total="select * from tblnational where AID is not null ".$a." 
         order by AID desc";
         $record = mysqli_query($con,$sql_total) or die("fail query");
         $total_record = mysqli_num_rows($record);

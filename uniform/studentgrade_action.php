@@ -193,8 +193,8 @@ if($action == 'show'){
 if($action == 'gograde'){
     $gradeid = $_POST['aid'];
     $gradename = $_POST['name'];
-    $_SESSION['gradeid'] = $gradeid;
-    $_SESSION['gradename'] = $gradename;
+    $_SESSION['uniform_gradeid'] = $gradeid;
+    $_SESSION['uniform_gradename'] = $gradename;
     echo 1;
 }
 

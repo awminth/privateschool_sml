@@ -164,9 +164,6 @@ $(document).ready(function() {
         load_pag();
     });
 
-
-
-
     $(document).on("click", "#btnaddstudent", function(e) {
         e.preventDefault();
         var aid = $(this).data('aid');

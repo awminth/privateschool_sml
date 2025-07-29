@@ -31,14 +31,12 @@ if($action == 'show'){
     $search = $_POST['search'];
     $a = "";
     if($search != ''){ 
-        $a = " and Name like '%$search%' ";
-    }       
-    // $sql="select * from tblstudentprofile where 
-    // AID not in (select StudentID from tblearstudent where 
-    // EARYearID={$yearid} ) ".$a." 
-    // order by AID desc limit {$offset},{$limit_per_page}";
+        $a = " and (Name like '%$search%' or NameMM like '%$search%')";
+    }    
     
-    $sql = "select * from tblstudentprofile";
+    $sql = "select * from tblstudentprofile where 
+        AID not in (select StudentID from tblearstudent where  
+        EARYearID={$yearid} ) ".$a." order by AID desc";
     $result=mysqli_query($con,$sql) or die("SQL a Query");
     $out="";
     if(mysqli_num_rows($result) > 0){
@@ -86,7 +84,7 @@ if($action == 'show'){
         $out.="</table><br>";
 
         $sql_total="select * from tblstudentprofile where 
-         AID not in (select StudentID from tblearstudent where  
+        AID not in (select StudentID from tblearstudent where  
         EARYearID={$yearid} ) ".$a." 
         order by AID desc";
         $record = mysqli_query($con,$sql_total) or die("fail query");
@@ -211,7 +209,6 @@ if($action == 'show'){
     }
 
 }
-
 
 if($action=='addstudent'){
     $studentid=$_POST['aid'];

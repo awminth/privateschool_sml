@@ -6,6 +6,7 @@ $vno = $_SESSION['go_pay_vno'];
 $ferryamt = 0;
 $foodamt = 0;
 $otheramt = 0;
+$nightstudyamt = 0;
 $feeamt = 0;
 $amt = 0;
 $disc = 0;

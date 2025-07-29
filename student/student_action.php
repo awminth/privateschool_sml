@@ -387,7 +387,6 @@ if($action == 'save'){
         '{$G8}','{$G9}','{$G10}','{$G11}','{$G12}','{$outreason}','{$rmk}',
         '{$place}','{$phno}','{$email}','{$emergence}','{$namemm}','{$attachdoc}'
         ,'{$realgrade}','{$cellphone}','{$fnrc}','{$mnrc}')";
-
        
         if(mysqli_query($con,$sql)){
             // get last insert id
@@ -793,9 +792,7 @@ if($action == "import"){
         if(in_array($extension,$valid_extension)){
             $new_filename = date("YmdHis").".".$extension;
             $new_path = root."upload/student/".$new_filename;
-
             move_uploaded_file($file,$new_path);
-            
             $reader = new SpreadsheetReader($new_path);
             $count = 0;
             foreach($reader as $key => $row){

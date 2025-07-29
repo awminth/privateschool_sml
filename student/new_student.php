@@ -439,7 +439,6 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function(data) {
-                // swal('', data, '');
                 if (data == 1) {
                     swal("Successful!", "Save Successful.",
                         "success");

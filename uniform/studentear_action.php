@@ -210,8 +210,8 @@ if($action == 'show'){
 if($action == 'goear'){ 
     $yearid=$_POST['aid'];
     $yearname=$_POST['name'];
-    $_SESSION['yearid']=$yearid;
-    $_SESSION['yearname']=$yearname;
+    $_SESSION['uniform_yearid']=$yearid;
+    $_SESSION['uniform_yearname']=$yearname;
     echo 1;
 }
 

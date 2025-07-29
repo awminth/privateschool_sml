@@ -680,13 +680,11 @@ if($action == "import"){
         $valid_extension = array("xlsx","XLSX","xls","XLS");
         if(in_array($extension,$valid_extension)){
             $new_filename = date("YmdHis").".".$extension;
-            $new_path = root."upload/student/".$new_filename;
-
+            $new_path = root."upload/teacher/".$new_filename;
             move_uploaded_file($file,$new_path);
-            error_reporting(0);
-            ini_set("display errors",0);
             $reader = new SpreadsheetReader($new_path);
             foreach($reader as $key => $row){
+                if($key == 0) continue; // skip header
                 $staffid = $row[1];
                 $name = $row[2];
                 $namemm = $row[3];
@@ -697,20 +695,18 @@ if($action == "import"){
                 $address = $row[7];
                 $email = $row[8];
                 $education = $row[9];
+                $salary = 0;
                 $salary = $row[10];
                 $dt1 = strtotime($row[11]);
                 $startdt = date('Y-m-d',$dt1);
-                $edulevel = $row[12];
 
                 $sql = "insert into tblstaff (LoginID,StaffID,Name,NameMM,DOB,Gender,
-                PhoneNo,Address,Email,Education,Salary,StartDate,EducationLevel)  
+                PhoneNo,Address,Email,Education,Salary,StartDate)  
                 values ('{$userid}','{$staffid}','{$name}','{$namemm}','{$dob}','{$gender}',
-                '{$phno}','{$address}','{$email}','{$education}','{$salary}','{$startdt}','{$edulevel}')";
+                '{$phno}','{$address}','{$email}','{$education}','{$salary}','{$startdt}')";
                 mysqli_query($con,$sql);
             }
-            
-            unlink(root.'upload/student/'.$new_filename);
-
+            unlink(root.'upload/teacher/'.$new_filename);
             echo 1;
         }
     }

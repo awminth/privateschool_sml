@@ -3,10 +3,10 @@ include('../config.php');
 
 $action = $_POST["action"];
 $userid=$_SESSION['userid'];
-$gradeid= $_SESSION['gradeid'];
-$gradename= $_SESSION['gradename'];
-$yearid= $_SESSION['yearid'];
-$yearname= $_SESSION['yearname'];
+$gradeid= $_SESSION['uniform_gradeid'];
+$gradename= $_SESSION['uniform_gradename'];
+$yearid= $_SESSION['uniform_yearid'];
+$yearname= $_SESSION['uniform_yearname'];
 $dt=date('Y-m-d');
 
 if($action == 'show'){  
@@ -379,7 +379,8 @@ if($action=='savefee'){
         EARStudentID={$studentid}";
         mysqli_query($con,$sqlupd);
         
-    }else{
+    }
+    else{
         $sql="insert into tblfee (LoginID,EARStudentID,PayTypeID,Amt,Disc,Tax,Total,
         Cash,Mobile,MobileRmk,TotalPay,Remain,Date,VNO,FeeAmt,FerryAmt,FoodAmt,OtherAmt,NightStudyAmt) values 
         ({$userid},{$studentid},{$paytype},{$amt},{$disc},{$tax},{$total},{$cash},{$mobile},

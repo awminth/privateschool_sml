@@ -329,7 +329,6 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function(data) {
-                // swal("",data,"");
                 swal("Successful!", "Import Data Successful.",
                     "success");
                 load_pag();

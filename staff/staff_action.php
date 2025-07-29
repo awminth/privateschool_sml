@@ -572,6 +572,7 @@ if($action == "import"){
             ini_set("display errors",0);
             $reader = new SpreadsheetReader($new_path);
             foreach($reader as $key => $row){
+                if($key == 0) continue; // skip header
                 $staffid = $row[1];
                 $name = $row[2];
 
@@ -584,19 +585,15 @@ if($action == "import"){
                 $email = $row[7];
                 $education = $row[8];
                 $salary = $row[9];
-
                 $dt1 = strtotime($row[10]);
                 $startdt = date('Y-m-d',$dt1);
-
                 $sql = "insert into tblstaff (LoginID,StaffID,Name,DOB,Gender,PhoneNo,
                 Address,Email,Education,Salary,StartDate,Status)  
                 values ('{$userid}','{$staffid}','{$name}','{$dob}','{$gender}','{$phno}',
                 '{$address}','{$email}','{$education}','{$salary}','{$startdt}',1)";
                 mysqli_query($con,$sql);
             }
-            
             unlink(root.'upload/student/'.$new_filename);
-
             echo 1;
         }
     }
